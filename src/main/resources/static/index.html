@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del sitio web -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Información de la página -->
+    <title>Sinergi Optics International | Óptica</title>
+
+    <meta name="description"
+        content="Sinergi Optics International: encuentra monturas, lentes oftálmicos y soluciones para el cuidado de tu visión.">
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         1. BARRA SUPERIOR DE INFORMACIÓN
+         ===================================================== -->
+
+    <div class="barra-superior">
+        SINERGI OPTICS INTERNATIONAL | Cuidamos tu salud visual
+    </div>
+
+
+    <!-- =====================================================
+         2. ENCABEZADO PRINCIPAL
+         ===================================================== -->
+
+    <header class="header">
+
+        <!-- Logotipo de la óptica -->
+        <a href="/" class="logo">
+            SINERGI <span>OPTICS</span>
+            <small>INTERNATIONAL</small>
+        </a>
+
+        <!-- Buscador de productos -->
+        <div class="buscador-principal">
+
+            <input
+                type="search"
+                id="busqueda-productos"
+                placeholder="¿Qué producto estás buscando?"
+                aria-label="Buscar productos">
+
+            <button type="button" id="btn-buscar-productos">
+                Buscar
+            </button>
+
+        </div>
+
+        <!-- Accesos rápidos -->
+        <div class="accesos-header">
+
+            <a href="#administracion">
+                Administración
+            </a>
+
+            <a href="/inventario.html">
+                Inventario
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         3. MENÚ PRINCIPAL DE NAVEGACIÓN
+         ===================================================== -->
+
+    <nav class="menu-principal">
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#categorias">Categorías</a>
+
+        <a href="#productos">Monturas</a>
+
+        <a href="#productos">Lentes oftálmicos</a>
+
+        <a href="#servicios">Servicios</a>
+
+        <a href="#nosotros">Nosotros</a>
+
+        <a href="#contacto">Contacto</a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         4. CONTENIDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             5. PORTADA PRINCIPAL
+             ================================================= -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <p class="subtitle">
+                    SINERGI OPTICS INTERNATIONAL
+                </p>
+
+                <h1>
+                    Una nueva forma
+                    de ver el mundo
+                </h1>
+
+                <p>
+                    Descubre nuestras soluciones ópticas,
+                    encuentra tu estilo y cuida tu salud visual
+                    con productos de calidad.
+                </p>
+
+                <a href="#productos" class="btn-primary">
+                    Explorar productos
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             6. CATEGORÍAS DE PRODUCTOS
+             ================================================= -->
+
+        <section class="section section-light" id="categorias">
+
+            <p class="subtitle">
+                DESCUBRE NUESTRAS CATEGORÍAS
+            </p>
+
+            <h2>
+                Encuentra lo que necesitas
+            </h2>
+
+            <div class="cards">
+
+                <article class="card categoria-card">
+
+                    <h3>Monturas</h3>
+
+                    <p>
+                        Encuentra monturas para diferentes
+                        estilos y preferencias.
+                    </p>
+
+                    <a href="#productos" class="btn-secondary">
+                        Ver productos
+                    </a>
+
+                </article>
+
+
+                <article class="card categoria-card">
+
+                    <h3>Lentes oftálmicos</h3>
+
+                    <p>
+                        Soluciones ópticas para diferentes
+                        necesidades visuales.
+                    </p>
+
+                    <a href="#productos" class="btn-secondary">
+                        Ver productos
+                    </a>
+
+                </article>
+
+
+                <article class="card categoria-card">
+
+                    <h3>Accesorios</h3>
+
+                    <p>
+                        Complementos para el cuidado
+                        y mantenimiento de tus lentes.
+                    </p>
+
+                    <a href="#productos" class="btn-secondary">
+                        Ver productos
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             7. CATÁLOGO DE PRODUCTOS
+             ================================================= -->
+
+        <section class="section" id="productos">
+
+            <p class="subtitle">
+                NUESTRO CATÁLOGO
+            </p>
+
+            <h2>
+                Productos destacados
+            </h2>
+
+            <p>
+                Explora los productos disponibles
+                en Sinergi Optics International.
+            </p>
+
+            <!-- Los productos se cargarán desde la base de datos -->
+            <div class="cards" id="lista-productos">
+
+                <p>
+                    Cargando productos...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             8. SECCIÓN DE PROMOCIÓN
+             ================================================= -->
+
+        <section class="seccion-promocion">
+
+            <div class="contenido-promocion">
+
+                <p class="subtitle">
+                    SINERGI OPTICS INTERNATIONAL
+                </p>
+
+                <h2>
+                    Tu estilo también se refleja en tu mirada
+                </h2>
+
+                <p>
+                    Encuentra alternativas ópticas que combinen
+                    comodidad, calidad y estilo.
+                </p>
+
+                <a href="#productos" class="btn-primary">
+                    Conoce nuestro catálogo
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             9. SECCIÓN NOSOTROS
+             ================================================= -->
+
+        <section class="section" id="nosotros">
+
+            <p class="subtitle">
+                QUIÉNES SOMOS
+            </p>
+
+            <h2>
+                Sinergi Optics International
+            </h2>
+
+            <p>
+                Somos una óptica comprometida con el cuidado
+                de la salud visual. Buscamos ofrecer soluciones
+                ópticas que combinen calidad, innovación,
+                tecnología y atención personalizada.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             10. SERVICIOS DE LA ÓPTICA
+             ================================================= -->
+
+        <section class="section section-light" id="servicios">
+
+            <p class="subtitle">
+                NUESTROS SERVICIOS
+            </p>
+
+            <h2>
+                Cuidamos de tu visión
+            </h2>
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <h3>Exámenes visuales</h3>
+
+                    <p>
+                        Evaluación de la salud visual y orientación
+                        para el cuidado de tus ojos.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h3>Lentes oftálmicos</h3>
+
+                    <p>
+                        Soluciones ópticas para diferentes
+                        necesidades visuales.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h3>Asesoría personalizada</h3>
+
+                    <p>
+                        Te ayudamos a encontrar monturas y lentes
+                        adecuados para tus necesidades.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             11. PANEL DE ADMINISTRACIÓN
+             ================================================= -->
+
+        <section class="section" id="administracion">
+
+            <p class="subtitle">
+                ADMINISTRACIÓN
+            </p>
+
+            <h2>
+                Registrar nuevo producto
+            </h2>
+
+            <!-- Formulario conectado con productos.js -->
+            <form id="formulario-producto">
+
+                <label for="nombre">
+                    Nombre del producto:
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    required
+                    placeholder="Ejemplo: Montura moderna">
+
+
+                <label for="descripcion">
+                    Descripción:
+                </label>
+
+                <textarea
+                    id="descripcion"
+                    placeholder="Descripción del producto">
+                </textarea>
+
+
+                <label for="categoria">
+                    Categoría:
+                </label>
+
+                <input
+                    type="text"
+                    id="categoria"
+                    required
+                    placeholder="Ejemplo: Monturas">
+
+
+                <label for="precio">
+                    Precio:
+                </label>
+
+                <input
+                    type="number"
+                    id="precio"
+                    min="0"
+                    step="0.01"
+                    required
+                    placeholder="35.00">
+
+
+                <label for="stock">
+                    Cantidad disponible:
+                </label>
+
+                <input
+                    type="number"
+                    id="stock"
+                    min="0"
+                    required
+                    placeholder="10">
+
+
+                <!-- Selección de fotografía -->
+                <label for="imagen">
+                    Fotografía del producto:
+                </label>
+
+                <input
+                    type="file"
+                    id="imagen"
+                    accept="image/png, image/jpeg, image/webp">
+
+
+                <!-- Vista previa de la fotografía -->
+                <div id="vista-previa-imagen">
+
+                    <p>
+                        Selecciona una fotografía para visualizarla.
+                    </p>
+
+                </div>
+
+
+                <!-- Botón para guardar -->
+                <button type="submit">
+                    Guardar producto
+                </button>
+
+            </form>
+
+            <!-- Mensajes del formulario -->
+            <p id="mensaje-producto"></p>
+
+        </section>
+
+
+        <!-- =================================================
+             12. CONTACTO
+             ================================================= -->
+
+        <section class="section section-light" id="contacto">
+
+            <p class="subtitle">
+                CONTÁCTANOS
+            </p>
+
+            <h2>
+                Estamos para ayudarte
+            </h2>
+
+            <p>
+                Escríbenos para recibir información sobre
+                nuestros productos y servicios.
+            </p>
+
+            <a
+                href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20sus%20servicios."
+                class="btn-primary"
+                target="_blank"
+                rel="noopener">
+
+                Contactar por WhatsApp
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         13. PIE DE PÁGINA
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-contenido">
+
+            <div>
+
+                <h3>
+                    SINERGI OPTICS INTERNATIONAL
+                </h3>
+
+                <p>
+                    Tu visión, nuestra prioridad.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Enlaces rápidos</h4>
+
+                <a href="#inicio">Inicio</a>
+
+                <a href="#productos">Productos</a>
+
+                <a href="#servicios">Servicios</a>
+
+                <a href="#contacto">Contacto</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Administración</h4>
+
+                <a href="#administracion">
+                    Registrar productos
+                </a>
+
+                <a href="/inventario.html">
+                    Consultar inventario
+                </a>
+
+            </div>
+
+        </div>
+
+        <p>
+            © 2026 Sinergi Optics International.
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         14. BOTÓN FLOTANTE DE WHATSAPP
+         ===================================================== -->
+
+    <a
+        href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20deseo%20informaci%C3%B3n."
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener"
+        aria-label="Contactar por WhatsApp">
+
+        <span>☏</span>
+
+    </a>
+
+
+    <!-- =====================================================
+         15. ARCHIVOS JAVASCRIPT
+         ===================================================== -->
+
+    <!-- Funciones generales de la página -->
+    <script src="/js/script.js"></script>
+
+    <!-- Registro, edición y catálogo de productos -->
+    <script src="/js/productos.js"></script>
+
+</body>
+
+</html>

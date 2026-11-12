@@ -1,0 +1,1525 @@
+
+/* ============================================================
+   PROYECTO: SINERGI OPTICS INTERNATIONAL
+   ARCHIVO: style.css
+   DESCRIPCIÓN:
+   Este archivo contiene todos los estilos visuales de nuestra
+   página web: colores, tamaños, espacios, botones, tarjetas,
+   formularios, encabezado, portada y adaptación a celulares.
+
+   IDENTIDAD VISUAL:
+   Azul oscuro + Blanco + Dorado.
+   ESTILO: Elegante, moderno y exclusivo.
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES DE COLORES DE NUESTRA MARCA
+   ============================================================ */
+
+/*
+   :root permite crear variables globales que podemos utilizar
+   en cualquier parte del archivo CSS.
+
+   Ventaja:
+   Si queremos cambiar el azul o el dorado de nuestra página,
+   solamente modificamos el valor aquí y se actualizará en
+   todos los elementos que utilicen estas variables.
+*/
+
+:root {
+
+    /* Azul principal utilizado en títulos y elementos importantes */
+    --azul: #10243d;
+
+    /* Azul más oscuro utilizado principalmente en fondos */
+    --azul-profundo: #09182b;
+
+    /* Dorado principal de nuestra identidad visual */
+    --dorado: #c5a46b;
+
+    /* Dorado claro utilizado para resaltar textos */
+    --dorado-claro: #dfc795;
+
+    /* Color blanco para fondos y textos */
+    --blanco: #ffffff;
+
+    /* Color gris muy claro para diferenciar secciones */
+    --fondo: #f7f7f5;
+
+    /* Color principal de los textos */
+    --texto: #354052;
+
+    /* Color gris para descripciones y textos secundarios */
+    --gris: #777f8c;
+}
+
+
+/* ============================================================
+   2. CONFIGURACIÓN GENERAL DE LA PÁGINA
+   ============================================================ */
+
+/*
+   El selector universal (*) aplica estas reglas a todos
+   los elementos HTML de nuestra página.
+*/
+
+* {
+
+    /* Elimina los márgenes predeterminados del navegador */
+    margin: 0;
+
+    /* Elimina los espacios internos predeterminados */
+    padding: 0;
+
+    /*
+       Hace que el ancho y alto de los elementos incluyan
+       también sus bordes y espacios internos.
+    */
+    box-sizing: border-box;
+}
+
+
+/*
+   Configuración del comportamiento general del documento.
+*/
+
+html {
+
+    /* Permite desplazarse suavemente entre las secciones */
+    scroll-behavior: smooth;
+}
+
+
+/*
+   Configuración principal del cuerpo de la página.
+*/
+
+body {
+
+    /* Establece la tipografía principal de nuestro sitio */
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    /* Aplica el color general de los textos */
+    color: var(--texto);
+
+    /* Establece el fondo general en color blanco */
+    background: var(--blanco);
+
+    /* Define la separación vertical entre las líneas de texto */
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   3. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+   ============================================================ */
+
+/*
+   .header representa el encabezado principal de nuestra página.
+
+   Contiene:
+   - El logotipo de Sinergi Optics.
+   - Los enlaces del menú de navegación.
+*/
+
+.header {
+
+    /* El encabezado ocupa todo el ancho disponible */
+    width: 100%;
+
+    /* Establece una altura mínima para el encabezado */
+    min-height: 95px;
+
+    /* Agrega espacio interno arriba, abajo y a los lados */
+    padding: 18px 7%;
+
+    /*
+       Flexbox permite colocar el logotipo y el menú
+       en una misma fila.
+    */
+    display: flex;
+
+    /* Coloca el logotipo a la izquierda y el menú a la derecha */
+    justify-content: space-between;
+
+    /* Centra verticalmente los elementos del encabezado */
+    align-items: center;
+
+    /* Establece una separación mínima entre los elementos */
+    gap: 25px;
+
+    /* Aplica el fondo blanco */
+    background: var(--blanco);
+
+    /* Agrega una línea inferior discreta de color beige */
+    border-bottom: 1px solid #e9e2d5;
+
+    /* Permite controlar la posición del encabezado */
+    position: relative;
+
+    /* Mantiene el encabezado delante de otros elementos */
+    z-index: 100;
+}
+
+
+/* ============================================================
+   4. DISEÑO DEL LOGOTIPO
+   ============================================================ */
+
+/*
+   .logo representa el nombre de nuestra óptica dentro
+   del encabezado de la página.
+*/
+
+.logo {
+
+    /* Aplica el azul principal a las letras */
+    color: var(--azul);
+
+    /* Establece el tamaño del nombre de la marca */
+    font-size: 25px;
+
+    /* Hace que el nombre tenga mayor grosor */
+    font-weight: 800;
+
+    /* Separa ligeramente las letras */
+    letter-spacing: 1px;
+
+    /* Elimina el subrayado si el logotipo es un enlace */
+    text-decoration: none;
+
+    /* Ajusta la altura entre las líneas del logotipo */
+    line-height: 1.2;
+}
+
+
+/*
+   .logo span permite resaltar una parte del nombre
+   utilizando el color dorado.
+*/
+
+.logo span {
+
+    /* Aplica el dorado a la parte resaltada */
+    color: var(--dorado);
+}
+
+
+/*
+   .logo small representa el texto secundario del logotipo,
+   por ejemplo: INTERNATIONAL.
+*/
+
+.logo small {
+
+    /* Coloca el texto secundario debajo del nombre principal */
+    display: block;
+
+    /* Centra el texto secundario */
+    text-align: center;
+
+    /* Establece un tamaño pequeño */
+    font-size: 10px;
+
+    /* Separa las letras para darle elegancia */
+    letter-spacing: 5px;
+
+    /* Agrega una pequeña separación superior */
+    margin-top: 5px;
+}
+
+
+/* ============================================================
+   5. MENÚ DE NAVEGACIÓN
+   ============================================================ */
+
+/*
+   .navbar representa el conjunto de enlaces del menú:
+   Inicio, Nosotros, Servicios, Productos y Contacto.
+*/
+
+.navbar {
+
+    /* Coloca los enlaces en una misma fila */
+    display: flex;
+
+    /* Centra verticalmente los enlaces */
+    align-items: center;
+
+    /* Establece la separación entre cada enlace */
+    gap: 30px;
+}
+
+
+/*
+   Estilos individuales de los enlaces del menú.
+*/
+
+.navbar a {
+
+    /* Aplica el azul principal al texto */
+    color: var(--azul);
+
+    /* Elimina el subrayado de los enlaces */
+    text-decoration: none;
+
+    /* Define el tamaño de las letras */
+    font-size: 13px;
+
+    /* Hace que el texto tenga mayor grosor */
+    font-weight: 600;
+
+    /* Separa ligeramente las letras */
+    letter-spacing: 0.5px;
+
+    /* Permite que el cambio de color sea progresivo */
+    transition: color 0.3s;
+}
+
+
+/*
+   Efecto hover:
+   Se activa cuando el usuario coloca el cursor sobre un enlace.
+*/
+
+.navbar a:hover {
+
+    /* Cambia el color del enlace a dorado */
+    color: var(--dorado);
+}
+/* ============================================================
+   BOTÓN ESPECIAL DE ACCESO AL INVENTARIO
+   ============================================================ */
+
+.navbar a[href="/inventario.html"] {
+
+    /* Agrega espacio interno para darle forma de botón */
+    padding: 10px 18px;
+
+    /* Utiliza el dorado de nuestra marca como fondo */
+    background: var(--dorado);
+
+    /* Establece el texto en azul oscuro */
+    color: var(--azul-profundo);
+
+    /* Redondea ligeramente las esquinas */
+    border-radius: 4px;
+
+    /* Destaca el texto */
+    font-weight: 700;
+
+    /* Agrega un borde dorado */
+    border: 1px solid var(--dorado);
+
+    /* Suaviza los cambios visuales */
+    transition: all 0.3s ease;
+}
+
+/* Efecto cuando el cursor pasa sobre el botón */
+.navbar a[href="/inventario.html"]:hover {
+
+    /* Cambia el fondo a azul oscuro */
+    background: var(--azul);
+
+    /* Cambia el texto a blanco */
+    color: var(--blanco);
+
+    /* Cambia también el borde */
+    border-color: var(--azul);
+}
+
+/* ============================================================
+   6. PORTADA PRINCIPAL (HERO)
+   ============================================================ */
+
+/*
+   .hero representa la sección principal que aparece
+   al ingresar a nuestra página.
+
+   Contiene:
+   - Una imagen de fondo relacionada con la óptica.
+   - Un título comercial.
+   - Un texto de presentación.
+   - Un botón para explorar nuestros servicios.
+*/
+
+.hero {
+
+    /* Establece la altura mínima de la portada */
+    min-height: 620px;
+
+    /* Agrega espacio interno para separar el contenido */
+    padding: 90px 10%;
+
+    /* Utiliza Flexbox para organizar el contenido */
+    display: flex;
+
+    /* Centra verticalmente el contenido */
+    align-items: center;
+
+    /*
+       Se utilizan dos fondos:
+       1. Un degradado azul oscuro para mejorar la lectura.
+       2. Una fotografía relacionada con gafas y óptica.
+
+       El degradado se coloca encima de la fotografía.
+    */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 22, 40, 0.94),
+            rgba(7, 22, 40, 0.60)
+        ),
+        url("https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1800&q=85");
+
+    /* Hace que la imagen cubra todo el espacio disponible */
+    background-size: cover;
+
+    /* Centra la imagen para evitar recortes inadecuados */
+    background-position: center;
+
+    /* Establece el color blanco para los textos de la portada */
+    color: var(--blanco);
+}
+
+
+/*
+   .hero-content contiene el texto y el botón de la portada.
+*/
+
+.hero-content {
+
+    /* Limita el ancho del contenido para facilitar la lectura */
+    max-width: 680px;
+}
+
+
+/*
+   .subtitle representa los pequeños textos superiores
+   que identifican cada sección.
+*/
+
+.subtitle {
+
+    /* Utiliza el dorado de nuestra marca */
+    color: var(--dorado);
+
+    /* Establece un tamaño pequeño */
+    font-size: 12px;
+
+    /* Hace que el texto sea más grueso */
+    font-weight: 700;
+
+    /* Separa las letras */
+    letter-spacing: 4px;
+
+    /* Agrega espacio debajo del subtítulo */
+    margin-bottom: 18px;
+}
+
+
+/*
+   Estilos del título principal de la portada.
+*/
+
+.hero h1 {
+
+    /* Aplica el color blanco al título */
+    color: var(--blanco);
+
+    /*
+       clamp permite adaptar el tamaño del título
+       según el tamaño de la pantalla.
+    */
+    font-size: clamp(38px, 5vw, 62px);
+
+    /* Reduce la separación entre las líneas del título */
+    line-height: 1.15;
+
+    /* Agrega espacio debajo del título */
+    margin-bottom: 25px;
+
+    /* Establece un grosor destacado */
+    font-weight: 700;
+}
+
+
+/*
+   El elemento span permite destacar una parte del título.
+*/
+
+.hero h1 span {
+
+    /* Coloca el texto destacado en una línea independiente */
+    display: block;
+
+    /* Utiliza un dorado más claro */
+    color: var(--dorado-claro);
+}
+
+
+/*
+   Estilos del párrafo descriptivo de la portada.
+*/
+
+.hero-content > p:not(.subtitle) {
+
+    /* Aplica un color gris claro para facilitar la lectura */
+    color: #e5e9ef;
+
+    /* Define el tamaño del texto */
+    font-size: 17px;
+
+    /* Evita que el texto ocupe demasiado ancho */
+    max-width: 570px;
+
+    /* Agrega espacio antes del botón */
+    margin-bottom: 32px;
+}
+
+
+/* ============================================================
+   7. BOTÓN PRINCIPAL
+   ============================================================ */
+
+/*
+   .btn-primary es el botón que permite dirigir al visitante
+   hacia una sección de nuestra página.
+*/
+
+.btn-primary {
+
+    /* Permite que el enlace se comporte como un botón */
+    display: inline-block;
+
+    /* Agrega espacio interno al botón */
+    padding: 14px 30px;
+
+    /* Aplica el color dorado al fondo */
+    background: var(--dorado);
+
+    /* Utiliza azul oscuro para el texto */
+    color: var(--azul-profundo);
+
+    /* Elimina el subrayado del enlace */
+    text-decoration: none;
+
+    /* Destaca el texto del botón */
+    font-size: 13px;
+
+    /* Aumenta el grosor del texto */
+    font-weight: 700;
+
+    /* Separa ligeramente las letras */
+    letter-spacing: 1px;
+
+    /* Agrega un borde dorado */
+    border: 1px solid var(--dorado);
+
+    /* Redondea ligeramente las esquinas */
+    border-radius: 3px;
+
+    /* Permite realizar una transición suave */
+    transition: all 0.3s ease;
+}
+
+
+/*
+   Efecto al colocar el cursor sobre el botón.
+*/
+
+.btn-primary:hover {
+
+    /* El fondo se vuelve transparente */
+    background: transparent;
+
+    /* El texto cambia a dorado claro */
+    color: var(--dorado-claro);
+
+    /* Eleva ligeramente el botón */
+    transform: translateY(-3px);
+}
+
+
+/* ============================================================
+   8. SECCIONES GENERALES
+   ============================================================ */
+
+/*
+   .section se utiliza para organizar las diferentes partes
+   de nuestra página web.
+
+   Ejemplos:
+   - Nosotros.
+   - Servicios.
+   - Productos.
+   - Contacto.
+*/
+
+.section {
+
+    /* Agrega espacio superior e inferior a cada sección */
+    padding: 90px 9%;
+
+    /* Centra el contenido de la sección */
+    text-align: center;
+}
+
+
+/*
+   Títulos principales de las secciones.
+*/
+
+.section h2 {
+
+    /* Aplica el azul de nuestra marca */
+    color: var(--azul);
+
+    /* Define un tamaño destacado */
+    font-size: clamp(27px, 3vw, 38px);
+
+    /* Establece un grosor fuerte */
+    font-weight: 700;
+
+    /* Agrega espacio debajo del título */
+    margin-bottom: 22px;
+}
+
+
+/*
+   Párrafos que se encuentran directamente dentro
+   de las secciones, excepto los subtítulos.
+*/
+
+.section > p:not(.subtitle) {
+
+    /* Limita el ancho del texto */
+    max-width: 800px;
+
+    /* Centra el párrafo y agrega separación inferior */
+    margin: 0 auto 20px;
+
+    /* Utiliza gris para las descripciones */
+    color: var(--gris);
+}
+
+
+/*
+   Clase que permite utilizar un fondo alternativo
+   para diferenciar visualmente algunas secciones.
+*/
+
+.section-light {
+
+    /* Aplica un fondo gris muy claro */
+    background: var(--fondo);
+}
+
+
+/* ============================================================
+   9. TARJETAS DE SERVICIOS Y PRODUCTOS
+   ============================================================ */
+
+/*
+   .cards es el contenedor que organiza las tarjetas.
+
+   CSS Grid permite distribuir los elementos en columnas.
+*/
+
+.cards {
+
+    /*
+       Crea tres columnas del mismo tamaño.
+       minmax evita que las columnas tengan un ancho menor
+       al mínimo permitido.
+    */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* Establece la separación entre las tarjetas */
+    gap: 28px;
+
+    /* Separa las tarjetas del título de la sección */
+    margin-top: 45px;
+
+    /* Alinea el contenido de las tarjetas a la izquierda */
+    text-align: left;
+}
+
+
+/*
+   .card representa cada tarjeta individual del catálogo
+   o de los servicios de nuestra óptica.
+*/
+
+.card {
+
+    /* Elimina el espacio interno general */
+    padding: 0 0 25px;
+
+    /* Oculta cualquier contenido que sobresalga de la tarjeta */
+    overflow: hidden;
+
+    /* Establece el fondo blanco */
+    background: var(--blanco);
+
+    /* Agrega un borde gris muy discreto */
+    border: 1px solid #ececec;
+
+    /* Redondea ligeramente las esquinas */
+    border-radius: 5px;
+
+    /* Agrega una sombra suave para dar profundidad */
+    box-shadow: 0 8px 25px rgba(16, 36, 61, 0.06);
+
+    /* Permite animar la tarjeta cuando el cursor se acerca */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+/*
+   Efecto hover de las tarjetas:
+   La tarjeta se eleva y aumenta ligeramente su sombra.
+*/
+
+.card:hover {
+
+    /* Eleva la tarjeta siete píxeles */
+    transform: translateY(-7px);
+
+    /* Aumenta la intensidad de la sombra */
+    box-shadow: 0 15px 35px rgba(16, 36, 61, 0.13);
+}
+
+
+/*
+   Imágenes que aparecen dentro de las tarjetas.
+*/
+
+.card img {
+
+    /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    display: block;
+    width: 100%;
+
+    /* Establece una altura uniforme para las fotografías */
+    height: 245px;
+
+    /*
+       object-fit: cover permite llenar el espacio
+       sin deformar la imagen.
+    */
+    object-fit: cover;
+
+    /* Fondo de respaldo mientras se carga la imagen */
+    background: var(--fondo);
+}
+
+
+/*
+   Títulos de los productos y servicios.
+*/
+
+.card h3 {
+
+    /* Aplica el azul principal */
+    color: var(--azul);
+
+    /* Define el tamaño del título */
+    font-size: 20px;
+
+    /* Agrega separación alrededor del título */
+    margin: 22px 22px 10px;
+}
+
+
+/*
+   Descripciones y datos de los productos.
+*/
+
+.card p {
+
+    /* Utiliza gris para el texto secundario */
+    color: var(--gris);
+
+    /* Establece un tamaño cómodo de lectura */
+    font-size: 14px;
+
+    /* Agrega separación entre los párrafos */
+    margin: 7px 22px;
+}
+
+
+/*
+   Los elementos strong se utilizan para resaltar
+   información importante, como categoría y precio.
+*/
+
+.card strong {
+
+    /* Destaca la información con azul */
+    color: var(--azul);
+}
+
+
+/* ============================================================
+   ESTILOS ESPECIALES DEL CATÁLOGO PREMIUM
+   ============================================================ */
+
+/* Precio del producto destacado en dorado */
+.precio-producto {
+    color: var(--dorado) !important;
+    font-size: 20px !important;
+    font-weight: 800;
+}
+
+/* Botón para editar productos */
+.card .btn-editar {
+    background: var(--azul);
+    color: var(--blanco);
+    border: 1px solid var(--azul);
+}
+
+/* Efecto al pasar el cursor sobre Editar */
+.card .btn-editar:hover {
+    background: var(--dorado);
+    color: var(--azul-profundo);
+    border-color: var(--dorado);
+}
+
+/* Botón para eliminar productos */
+.card .btn-eliminar {
+    background: #a83232;
+    color: var(--blanco);
+    border: 1px solid #a83232;
+}
+
+/* Efecto al pasar el cursor sobre Eliminar */
+.card .btn-eliminar:hover {
+    background: #7f2020;
+    color: var(--blanco);
+    border-color: #7f2020;
+}
+
+/*
+   Botones que aparecen dentro de las tarjetas.
+
+   Actualmente se utilizan para las acciones de administración
+   de productos, como Editar y Eliminar.
+*/
+
+.card button {
+
+    /* Agrega espacio interno al botón */
+    margin: 18px 5px 0 22px;
+    padding: 10px 17px;
+
+    /* Utiliza dorado como fondo */
+    border: 1px solid var(--dorado);
+    border-radius: 3px;
+    background: var(--dorado);
+
+    /* Utiliza azul oscuro para el texto */
+    color: var(--azul-profundo);
+
+    /* Define el tamaño y grosor de las letras */
+    font-size: 12px;
+    font-weight: 700;
+
+    /* Cambia el cursor para indicar que es un botón */
+    cursor: pointer;
+
+    /* Permite realizar cambios suaves */
+    transition: 0.3s;
+}
+
+
+/*
+   Efecto al pasar el cursor sobre los botones de las tarjetas.
+*/
+
+.card button:hover {
+
+    /* Cambia el fondo a azul oscuro */
+    background: var(--azul);
+
+    /* Cambia el borde al mismo color */
+    border-color: var(--azul);
+
+    /* Cambia el texto a blanco */
+    color: var(--blanco);
+}
+
+
+/* ============================================================
+   10. FORMULARIO DE ADMINISTRACIÓN DE PRODUCTOS
+   ============================================================ */
+
+/*
+   #administracion identifica la sección completa donde
+   el administrador puede registrar y modificar productos.
+*/
+
+#administracion {
+
+    /* Utiliza un fondo gris claro para diferenciarla */
+    background: var(--fondo);
+}
+
+
+/*
+   #formulario-producto identifica el formulario HTML
+   que utilizamos para registrar y editar productos.
+*/
+
+#formulario-producto {
+
+    /* Limita el ancho máximo del formulario */
+    max-width: 650px;
+
+    /* Centra el formulario horizontalmente */
+    margin: 35px auto 0;
+
+    /* Agrega espacio interno */
+    padding: 35px;
+
+    /* Alinea las etiquetas y campos a la izquierda */
+    text-align: left;
+
+    /* Aplica fondo blanco */
+    background: var(--blanco);
+
+    /* Agrega un borde discreto */
+    border: 1px solid #e8e5df;
+
+    /* Redondea ligeramente las esquinas */
+    border-radius: 6px;
+
+    /* Agrega profundidad mediante una sombra */
+    box-shadow: 0 8px 25px rgba(16, 36, 61, 0.06);
+}
+
+
+/*
+   Etiquetas que identifican cada campo del formulario.
+*/
+
+#formulario-producto label {
+
+    /* Hace que cada etiqueta ocupe una línea completa */
+    display: block;
+
+    /* Separa la etiqueta de los demás elementos */
+    margin: 15px 0 6px;
+
+    /* Utiliza azul para identificar las etiquetas */
+    color: var(--azul);
+
+    /* Define un tamaño pequeño */
+    font-size: 13px;
+
+    /* Destaca las etiquetas */
+    font-weight: 700;
+}
+
+
+/*
+   Campos de texto y área de descripción del formulario.
+*/
+
+#formulario-producto input,
+#formulario-producto textarea {
+
+    /* Hace que los campos ocupen todo el ancho */
+    width: 100%;
+
+    /* Agrega espacio interno para facilitar la escritura */
+    padding: 12px 14px;
+
+    /* Establece un borde gris */
+    border: 1px solid #dce0e5;
+
+    /* Redondea ligeramente los bordes */
+    border-radius: 3px;
+
+    /* Aplica fondo blanco */
+    background: #fff;
+
+    /* Establece el color del texto */
+    color: var(--texto);
+
+    /* Mantiene la tipografía general */
+    font-family: inherit;
+
+    /* Define el tamaño del texto */
+    font-size: 14px;
+
+    /* Elimina el contorno predeterminado del navegador */
+    outline: none;
+}
+
+
+/*
+   Efecto cuando el usuario selecciona un campo
+   para escribir información.
+*/
+
+#formulario-producto input:focus,
+#formulario-producto textarea:focus {
+
+    /* Cambia el borde a dorado */
+    border-color: var(--dorado);
+
+    /* Agrega un resplandor suave alrededor del campo */
+    box-shadow: 0 0 0 3px rgba(197, 164, 107, 0.12);
+}
+
+
+/*
+   Configuración específica del campo de descripción.
+*/
+
+#formulario-producto textarea {
+
+    /* Establece una altura mínima */
+    min-height: 100px;
+
+    /* Permite modificar la altura verticalmente */
+    resize: vertical;
+}
+
+
+/*
+   Botón de guardar del formulario.
+*/
+
+#formulario-producto button {
+
+    /* Separa el botón de los campos anteriores */
+    margin-top: 22px;
+
+    /* Agrega espacio interno */
+    padding: 13px 25px;
+
+    /* Utiliza azul oscuro como fondo */
+    background: var(--azul);
+
+    /* Establece el texto en blanco */
+    color: var(--blanco);
+
+    /* Elimina el borde predeterminado */
+    border: none;
+
+    /* Redondea ligeramente las esquinas */
+    border-radius: 3px;
+
+    /* Destaca el texto */
+    font-weight: 700;
+
+    /* Indica que el elemento es interactivo */
+    cursor: pointer;
+
+    /* Permite animar los cambios de apariencia */
+    transition: 0.3s;
+}
+
+
+/*
+   Efecto al pasar el cursor sobre el botón del formulario.
+*/
+
+#formulario-producto button:hover {
+
+    /* Cambia el fondo a dorado */
+    background: var(--dorado);
+
+    /* Cambia el texto a azul oscuro */
+    color: var(--azul-profundo);
+}
+
+
+/*
+   Mensaje que informa si el producto se guardó correctamente
+   o si ocurrió algún error.
+*/
+
+#mensaje-producto {
+
+    /* Agrega espacio superior */
+    margin-top: 15px;
+
+    /* Destaca el mensaje */
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   11. PIE DE PÁGINA (FOOTER)
+   ============================================================ */
+
+/*
+   .footer representa la parte inferior de nuestra página.
+
+   Aquí podemos mostrar:
+   - Nombre de la óptica.
+   - Información de contacto.
+   - Derechos reservados.
+*/
+
+.footer {
+
+    /* Agrega espacio interno alrededor del contenido */
+    padding: 55px 10%;
+
+    /* Centra los textos */
+    text-align: center;
+
+    /* Utiliza un gris claro para los textos */
+    color: #e5e9ef;
+
+    /* Aplica el azul más oscuro como fondo */
+    background: var(--azul-profundo);
+
+    /* Agrega una línea dorada en la parte superior */
+    border-top: 3px solid var(--dorado);
+}
+
+
+/*
+   Título del pie de página.
+*/
+
+.footer h3 {
+
+    /* Utiliza el dorado de nuestra marca */
+    color: var(--dorado);
+
+    /* Establece un tamaño destacado */
+    font-size: 22px;
+
+    /* Agrega espacio inferior */
+    margin-bottom: 12px;
+}
+
+
+/*
+   Párrafos del pie de página.
+*/
+
+.footer p {
+
+    /* Establece un tamaño pequeño */
+    font-size: 13px;
+
+    /* Separa los párrafos */
+    margin-top: 8px;
+}
+
+
+/* ============================================================
+   12. BOTÓN FLOTANTE DE WHATSAPP
+   ============================================================ */
+
+/*
+   .whatsapp-float representa el botón circular que permanece
+   visible en la pantalla para facilitar el contacto.
+*/
+
+.whatsapp-float {
+
+    /* Mantiene el botón fijo aunque el usuario se desplace */
+    position: fixed;
+
+    /* Define el ancho del botón */
+    width: 58px;
+
+    /* Define el alto del botón */
+    height: 58px;
+
+    /* Separa el botón del borde derecho */
+    right: 25px;
+
+    /* Separa el botón del borde inferior */
+    bottom: 25px;
+
+    /* Utiliza Flexbox para centrar el contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Aplica el color verde característico de WhatsApp */
+    background: #25D366;
+
+    /* Establece el color blanco del símbolo */
+    color: white;
+
+    /* Convierte el botón en un círculo */
+    border-radius: 50%;
+
+    /* Elimina el subrayado del enlace */
+    text-decoration: none;
+
+    /* Define el tamaño del símbolo */
+    font-size: 32px;
+
+    /* Destaca el símbolo */
+    font-weight: bold;
+
+    /* Agrega una sombra para separarlo del contenido */
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+
+    /* Mantiene el botón delante de otros elementos */
+    z-index: 1000;
+
+    /* Permite realizar una transición suave */
+    transition: transform 0.3s;
+}
+
+
+/*
+   Efecto al colocar el cursor sobre el botón de WhatsApp.
+*/
+
+.whatsapp-float:hover {
+
+    /* Aumenta ligeramente el tamaño del botón */
+    transform: scale(1.10);
+}
+
+
+/* ============================================================
+   13. ADAPTACIÓN PARA TABLETS
+   ============================================================ */
+
+/*
+   Media query:
+   Permite cambiar los estilos cuando el ancho de pantalla
+   es igual o inferior a 900 píxeles.
+
+   Se utiliza para adaptar la página a tablets y pantallas
+   de tamaño intermedio.
+*/
+
+@media (max-width: 900px) {
+
+    /* Reduce el catálogo a dos columnas */
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Reduce los espacios laterales del encabezado */
+    .header {
+        padding: 18px 5%;
+    }
+
+    /* Reduce la separación entre los enlaces */
+    .navbar {
+        gap: 16px;
+    }
+}
+
+
+/* ============================================================
+   14. ADAPTACIÓN PARA CELULARES
+   ============================================================ */
+
+/*
+   Esta media query se activa cuando el ancho de pantalla
+   es igual o inferior a 600 píxeles.
+
+   Su objetivo es que la página pueda visualizarse correctamente
+   desde teléfonos celulares.
+*/
+
+@media (max-width: 600px) {
+
+    /*
+       El encabezado cambia de una fila a una columna
+       para colocar el logotipo encima del menú.
+    */
+    .header {
+        flex-direction: column;
+
+        /* Separa el logotipo del menú */
+        gap: 18px;
+
+        /* Reduce los espacios laterales */
+        padding: 20px 5%;
+    }
+
+
+    /*
+       El menú permite que sus enlaces pasen a otra línea
+       cuando no existe suficiente espacio horizontal.
+    */
+    .navbar {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 13px 18px;
+    }
+
+
+    /* Reduce el tamaño de los enlaces del menú */
+    .navbar a {
+        font-size: 12px;
+    }
+
+
+    /*
+       Reduce la altura de la portada y adapta sus espacios
+       para que no ocupe demasiado espacio en el celular.
+    */
+    .hero {
+        min-height: 480px;
+        padding: 65px 7%;
+
+        /* Centra la imagen de fondo */
+        background-position: center;
+    }
+
+
+    /* Reduce el tamaño del título principal */
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    /* Reduce el tamaño del texto descriptivo */
+    .hero-content > p:not(.subtitle) {
+        font-size: 15px;
+    }
+
+
+    /*
+       Reduce los espacios internos de las secciones
+       para aprovechar mejor la pantalla del celular.
+    */
+    .section {
+        padding: 60px 7%;
+    }
+
+
+    /* Ajusta el tamaño de los títulos de las secciones */
+    .section h2 {
+        font-size: 27px;
+    }
+
+
+    /*
+       Organiza las tarjetas en una sola columna.
+       Así cada producto ocupa todo el ancho disponible.
+    */
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+
+    /* Ajusta la altura de las imágenes de los productos */
+    .card img {
+        height: 230px;
+    }
+
+
+    /* Reduce el espacio interno del formulario */
+    #formulario-producto {
+        padding: 23px 18px;
+    }
+
+
+    /* Reduce y acerca el botón flotante de WhatsApp */
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+}
+
+
+/* ============================================================
+   DISEÑO PROFESIONAL DEL SISTEMA DE INVENTARIO
+   SINERGI OPTICS INTERNATIONAL
+   ============================================================ */
+
+/* Contenedor de las tablas */
+#lista-todos-productos,
+#lista-stock-bajo,
+#lista-agotados {
+    width: 100%;
+    overflow-x: auto;
+    margin: 25px 0 40px;
+    background: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(9, 24, 43, 0.08);
+}
+
+/* Tabla general */
+.tabla-inventario {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    text-align: left;
+    background: var(--blanco);
+}
+
+/* Encabezados */
+.tabla-inventario thead {
+    background: var(--azul);
+    color: var(--blanco);
+}
+
+.tabla-inventario th {
+    padding: 17px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Celdas */
+.tabla-inventario td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eeeeee;
+    color: var(--texto);
+    font-size: 14px;
+}
+
+/* Efecto al pasar el cursor */
+.tabla-inventario tbody tr:hover {
+    background: #faf7f0;
+}
+
+/* Última fila */
+.tabla-inventario tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Indicador de producto disponible */
+.estado-disponible {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #e5f5eb;
+    color: #217346;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Indicador de stock bajo */
+.estado-bajo {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fff2d9;
+    color: #946200;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Indicador de producto agotado */
+.estado-agotado {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fde8e8;
+    color: #b42318;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Mensajes cuando no existen productos */
+.inventario-vacio {
+    padding: 25px;
+    text-align: center;
+    color: var(--gris);
+    font-size: 15px;
+}
+
+/* Títulos de las secciones del inventario */
+#inventario h3 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: var(--azul);
+}
+
+/* ============================================================
+   TARJETAS INTERACTIVAS DEL INVENTARIO
+   ============================================================ */
+
+/* Efecto suave para las tres tarjetas. */
+.tarjeta-inventario {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el cursor por cualquiera de las tarjetas. */
+.tarjeta-inventario:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(9, 24, 43, 0.14);
+}
+
+/* Estilo del texto que indica qué podemos consultar. */
+.tarjeta-inventario span {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--gris);
+}
+
+/* ============================================================
+   BOTONES DE ACCIONES DEL INVENTARIO
+   ============================================================ */
+
+/* Botón para modificar las existencias. */
+.btn-modificar-stock {
+    background: var(--azul);
+    color: var(--blanco);
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin: 3px;
+}
+
+/* Efecto al pasar el cursor por modificar stock. */
+.btn-modificar-stock:hover {
+    background: var(--dorado);
+    color: var(--azul-profundo);
+    transform: translateY(-2px);
+}
+
+/* Botón para editar los datos del producto. */
+.btn-editar-producto {
+    display: inline-block;
+    background: var(--dorado);
+    color: var(--azul-profundo);
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    margin: 3px;
+}
+
+/* Efecto al pasar el cursor por editar producto. */
+.btn-editar-producto:hover {
+    background: var(--azul);
+    color: var(--blanco);
+    transform: translateY(-2px);
+}
+
+/* Evitamos que los botones queden demasiado juntos. */
+.tabla-inventario td:last-child {
+    min-width: 230px;
+}
+
+/* ============================================================
+   FIN DEL ARCHIVO STYLE.CSS
+   SINERGI OPTICS INTERNATIONAL
+   ============================================================ */

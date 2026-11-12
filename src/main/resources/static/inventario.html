@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+
+    <!-- Permite adaptar la página a celulares y tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparecerá en la pestaña del navegador -->
+    <title>Inventario | Sinergi Optics International</title>
+
+    <!-- Conectamos los estilos generales de nuestra página -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         ENCABEZADO DEL SISTEMA DE INVENTARIO
+         ========================================== -->
+
+    <header class="header">
+
+        <!-- Nombre y logotipo de nuestra óptica -->
+        <a href="/" class="logo">
+            SINERGI <span>OPTICS</span>
+            <small>INTERNATIONAL</small>
+        </a>
+
+        <!-- Menú de navegación del inventario -->
+        <nav class="navbar">
+
+            <!-- Regresa a la página principal -->
+            <a href="/">Volver al inicio</a>
+
+            <!-- Enlace para actualizar el panel -->
+            <a href="javascript:location.reload()">Actualizar</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         PANEL PRINCIPAL DE INVENTARIO
+         ========================================== -->
+
+    <main>
+
+        <section class="section section-light" id="inventario">
+
+            <!-- Identificación del módulo -->
+            <p class="subtitle">SISTEMA ADMINISTRATIVO</p>
+
+            <!-- Título principal -->
+            <h2>Control de inventario</h2>
+
+            <!-- Descripción del módulo -->
+            <p>
+                Administra las existencias y consulta el estado
+                de los productos registrados en nuestra óptica.
+            </p>
+
+
+           <!-- ==========================================
+     RESUMEN INTERACTIVO DEL INVENTARIO
+     ========================================== -->
+
+<div class="cards">
+
+    <!-- Total de productos -->
+    <article class="card tarjeta-inventario tarjeta-total"
+         onclick="document.getElementById('lista-todos-productos').scrollIntoView({behavior:'smooth'})">
+        <h3>Total de productos</h3>
+        <p id="total-productos">0</p>
+        <span>Productos registrados</span>
+    </article>
+
+    <!-- Productos con poco stock -->
+    <article class="card tarjeta-inventario tarjeta-stock-bajo"
+             onclick="document.getElementById('seccion-stock-bajo').scrollIntoView({behavior:'smooth'})">
+
+        <h3>Stock bajo</h3>
+        <p id="total-stock-bajo">0</p>
+        <span>Ver productos con pocas unidades →</span>
+
+    </article>
+
+    <!-- Productos agotados -->
+    <article class="card tarjeta-inventario tarjeta-agotados"
+             onclick="document.getElementById('seccion-agotados').scrollIntoView({behavior:'smooth'})">
+
+        <h3>Productos agotados</h3>
+        <p id="total-agotados">0</p>
+        <span>Ver productos agotados →</span>
+
+    </article>
+
+</div>
+
+            <!-- ==========================================
+            LISTADO GENERAL DE PRODUCTOS
+             ========================================== -->
+
+            <h3>Todos los productos registrados</h3>
+
+            <!-- Aquí aparecerán todos los productos y sus existencias -->
+            <div id="lista-todos-productos">
+                <p>Cargando productos...</p>
+            </div>
+
+
+            <!-- ==========================================
+                 LISTA DE PRODUCTOS CON POCO STOCK
+                 ========================================== -->
+
+            <h3 id="seccion-stock-bajo">Productos con poco stock</h3>
+
+            <div id="lista-stock-bajo">
+                <p>Consultando inventario...</p>
+            </div>
+
+
+            <!-- ==========================================
+                 LISTA DE PRODUCTOS AGOTADOS
+                 ========================================== -->
+
+            <h3 id="seccion-agotados">Productos agotados</h3>
+
+            <div id="lista-agotados">
+                <p>Consultando inventario...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         PIE DE PÁGINA
+         ========================================== -->
+
+    <footer class="footer">
+
+        <h3>SINERGI OPTICS INTERNATIONAL</h3>
+
+        <p>Sistema de administración de inventario.</p>
+
+        <p>Todos los derechos reservados.</p>
+
+    </footer>
+
+
+    <!-- Conectamos el archivo JavaScript del inventario -->
+    <script src="/js/inventario.js"></script>
+
+</body>
+</html>

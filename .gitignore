@@ -1,0 +1,22 @@
+# ============================================================
+# PROYECTO: SINERGI OPTICS INTERNATIONAL
+# ARCHIVO: .gitignore
+# DESCRIPCIÓN:
+# Indica a Git qué archivos y carpetas no debe subir a GitHub.
+# ============================================================
+
+# Archivos de base de datos H2
+data/*.mv.db
+data/*.trace.db
+
+# Archivos temporales y registros
+*.log
+
+# Archivos temporales de Windows
+Thumbs.db
+Desktop.ini
+# Archivos generados automáticamente por Maven
+target/
+
+# Archivos de configuración personal del editor
+.vscode/
