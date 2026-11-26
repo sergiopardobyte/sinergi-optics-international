@@ -2147,6 +2147,11 @@ body {
     line-height: 1.6;
 }
 
+/* Ocultar correctamente los elementos restringidos por roles */
+[hidden] {
+    display: none !important;
+}
+
 /* ============================================================
    FIN DEL ARCHIVO STYLE.CSS
    SINERGI OPTICS INTERNATIONAL

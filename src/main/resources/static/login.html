@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar sesión | Sinergi Optics International</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Fondo general de la página */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f7f7f5;
+        }
+
+        /* Encabezado */
+        .login-header {
+            padding: 22px 7%;
+            background: white;
+            border-bottom: 1px solid #e9e2d5;
+        }
+
+        /* Contenedor principal */
+        .login-contenedor {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 45px 20px;
+        }
+
+        /* Tarjeta de inicio de sesión */
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            border-top: 5px solid #c5a46b;
+            box-shadow: 0 10px 35px rgba(9, 24, 43, 0.10);
+        }
+
+        .login-card h1 {
+            color: #10243d;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .login-descripcion {
+            color: #777f8c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* Campos del formulario */
+        .login-card label {
+            display: block;
+            margin: 17px 0 7px;
+            color: #10243d;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce0e5;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .login-card input:focus {
+            border-color: #c5a46b;
+            box-shadow: 0 0 0 3px rgba(197, 164, 107, 0.12);
+        }
+
+        /* Botón de acceso */
+        .btn-login {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            background: #10243d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background: #c5a46b;
+            color: #09182b;
+        }
+
+        /* Enlace de registro */
+        .login-registro {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 14px;
+            color: #777f8c;
+        }
+
+        .login-registro a {
+            color: #10243d;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .login-registro a:hover {
+            color: #c5a46b;
+        }
+
+        /* Mensaje de error */
+        .login-error {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background: #fde8e8;
+            color: #b42318;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Pie de página */
+        .login-footer {
+            padding: 20px;
+            background: #09182b;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        @media (max-width: 500px) {
+            .login-card {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <!-- Encabezado con el nombre de la óptica -->
+        <header class="login-header">
+
+            <a href="/" class="logo">
+                SINERGI <span>OPTICS</span>
+                <small>INTERNATIONAL</small>
+            </a>
+
+        </header>
+
+        <!-- Formulario de inicio de sesión -->
+        <main class="login-contenedor">
+
+            <section class="login-card">
+
+                <h1>Bienvenido</h1>
+
+                <p class="login-descripcion">
+                    Ingresa a tu cuenta de Sinergi Optics International
+                </p>
+
+                <form action="/login" method="POST">
+
+                    <!-- Token de seguridad CSRF -->
+                    <input type="hidden" name="_csrf" id="csrf-token">
+
+                    <!-- Nombre de usuario -->
+                    <label for="username">
+                        Nombre de usuario
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Ingresa tu usuario"
+                        required
+                    >
+
+                    <!-- Contraseña -->
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Ingresa tu contraseña"
+                        required
+                    >
+
+                    <!-- Botón para iniciar sesión -->
+                    <button type="submit" class="btn-login">
+                        INICIAR SESIÓN
+                    </button>
+
+                </form>
+
+                <!-- Mensaje de error -->
+                <div class="login-error" id="mensaje-error">
+                    Usuario o contraseña incorrectos.
+                </div>
+
+                <!-- Acceso al registro -->
+                <div class="login-registro">
+
+                    ¿Todavía no tienes una cuenta?
+
+                    <a href="/registro.html">
+                        Crear cuenta
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="login-footer">
+
+            © 2026 Sinergi Optics International.
+            Todos los derechos reservados.
+
+        </footer>
+
+    </div>
+
+    <script>
+
+        // Obtener el token CSRF antes de enviar el formulario
+        fetch("/api/auth/csrf")
+            .then(respuesta => {
+                if (!respuesta.ok) {
+                    throw new Error("No se pudo obtener el token de seguridad");
+                }
+                return respuesta.json();
+            })
+            .then(datos => {
+                document.getElementById("csrf-token").value = datos.token;
+            })
+            .catch(error => {
+                console.error("Error de seguridad:", error);
+            });
+
+        // Mostrar mensaje si Spring Security devuelve un error
+        const parametros = new URLSearchParams(window.location.search);
+
+        if (parametros.has("error")) {
+            document.getElementById("mensaje-error").style.display = "block";
+        }
+
+    </script>
+
+</body>
+</html>

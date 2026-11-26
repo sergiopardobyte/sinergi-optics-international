@@ -55,18 +55,37 @@
 
         </div>
 
-        <!-- Accesos rápidos -->
-        <div class="accesos-header">
+      <!-- Accesos rápidos según el rol -->
+<div class="accesos-header">
 
-            <a href="#administracion">
-                Administración
-            </a>
+    <!-- Solo ADMIN -->
+    <a href="#administracion" id="enlace-administracion" hidden>
+        Administración
+    </a>
 
-            <a href="/inventario.html">
-                Inventario
-            </a>
+    <!-- ADMIN e INVENTARIO -->
+    <a href="/inventario.html" id="enlace-inventario" hidden>
+        Inventario
+    </a>
 
-        </div>
+    <!-- Visitantes y usuarios sin sesión -->
+    <a href="/login.html" id="enlace-login">
+        Iniciar sesión
+    </a>
+
+    <a href="/registro.html" id="enlace-registro">
+        Crear cuenta
+    </a>
+
+    <!-- Usuarios autenticados -->
+    <span id="nombre-usuario" hidden></span>
+
+    <form action="/logout" method="POST" id="formulario-logout" hidden>
+        <input type="hidden" name="_csrf" id="token-logout">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+
+</div>
 
     </header>
 
@@ -346,7 +365,7 @@
              11. PANEL DE ADMINISTRACIÓN
              ================================================= -->
 
-        <section class="section" id="administracion">
+        <section class="section" id="administracion" hidden>
 
             <p class="subtitle">
                 ADMINISTRACIÓN
@@ -356,93 +375,91 @@
                 Registrar nuevo producto
             </h2>
 
-            <!-- Formulario conectado con productos.js -->
-            <form id="formulario-producto">
+        </section>    
 
-                <label for="nombre">
-                    Nombre del producto:
-                </label>
+            <!-- Sección exclusiva para administración -->
+<section id="formulario-administracion" hidden>
 
-                <input
-                    type="text"
-                    id="nombre"
-                    required
-                    placeholder="Ejemplo: Montura moderna">
+    <!-- Formulario conectado con productos.js -->
+    <form id="formulario-producto">
 
+        <label for="nombre">
+            Nombre del producto:
+        </label>
 
-                <label for="descripcion">
-                    Descripción:
-                </label>
+        <input
+            type="text"
+            id="nombre"
+            required
+            placeholder="Ejemplo: Montura moderna">
 
-                <textarea
-                    id="descripcion"
-                    placeholder="Descripción del producto">
-                </textarea>
+        <label for="descripcion">
+            Descripción:
+        </label>
 
+        <textarea
+            id="descripcion"
+            placeholder="Descripción del producto">
+        </textarea>
 
-                <label for="categoria">
-                    Categoría:
-                </label>
+        <label for="categoria">
+            Categoría:
+        </label>
 
-                <input
-                    type="text"
-                    id="categoria"
-                    required
-                    placeholder="Ejemplo: Monturas">
+        <input
+            type="text"
+            id="categoria"
+            required
+            placeholder="Ejemplo: Monturas">
 
+        <label for="precio">
+            Precio:
+        </label>
 
-                <label for="precio">
-                    Precio:
-                </label>
+        <input
+            type="number"
+            id="precio"
+            min="0"
+            step="0.01"
+            required
+            placeholder="35.00">
 
-                <input
-                    type="number"
-                    id="precio"
-                    min="0"
-                    step="0.01"
-                    required
-                    placeholder="35.00">
+        <label for="stock">
+            Cantidad disponible:
+        </label>
 
+        <input
+            type="number"
+            id="stock"
+            min="0"
+            required
+            placeholder="10">
 
-                <label for="stock">
-                    Cantidad disponible:
-                </label>
+        <!-- Selección de fotografía -->
+        <label for="imagen">
+            Fotografía del producto:
+        </label>
 
-                <input
-                    type="number"
-                    id="stock"
-                    min="0"
-                    required
-                    placeholder="10">
+        <input
+            type="file"
+            id="imagen"
+            accept="image/png, image/jpeg, image/webp">
 
+        <!-- Vista previa de la fotografía -->
+        <div id="vista-previa-imagen">
+            <p>
+                Selecciona una fotografía para visualizarla.
+            </p>
+        </div>
 
-                <!-- Selección de fotografía -->
-                <label for="imagen">
-                    Fotografía del producto:
-                </label>
+        <!-- Botón para guardar -->
+        <button type="submit">
+            Guardar producto
+        </button>
 
-                <input
-                    type="file"
-                    id="imagen"
-                    accept="image/png, image/jpeg, image/webp">
+    </form>
 
-
-                <!-- Vista previa de la fotografía -->
-                <div id="vista-previa-imagen">
-
-                    <p>
-                        Selecciona una fotografía para visualizarla.
-                    </p>
-
-                </div>
-
-
-                <!-- Botón para guardar -->
-                <button type="submit">
-                    Guardar producto
-                </button>
-
-            </form>
+</section>
 
             <!-- Mensajes del formulario -->
             <p id="mensaje-producto"></p>
@@ -520,20 +537,19 @@
             </div>
 
 
-            <div>
+            <div id="enlaces-footer-administracion" hidden>
 
-                <h4>Administración</h4>
+    <h4>Administración</h4>
 
-                <a href="#administracion">
-                    Registrar productos
-                </a>
+    <a href="#administracion" id="footer-registro-productos">
+        Registrar productos
+    </a>
 
-                <a href="/inventario.html">
-                    Consultar inventario
-                </a>
+    <a href="/inventario.html" id="footer-inventario">
+        Consultar inventario
+    </a>
 
-            </div>
-
+</div>
         </div>
 
         <p>
@@ -569,6 +585,124 @@
 
     <!-- Registro, edición y catálogo de productos -->
     <script src="/js/productos.js"></script>
+
+    <script>
+
+// Identificar al usuario que inició sesión
+async function verificarUsuario() {
+
+    try {
+
+        // Consultar los datos de la sesión
+        const respuesta = await fetch("/api/auth/me");
+
+        // Si no hay sesión iniciada, dejar la página pública
+        if (!respuesta.ok ||
+            !respuesta.headers.get("content-type")?.includes("application/json")) {
+            return;
+        }
+
+        const usuario = await respuesta.json();
+
+        const roles = usuario.roles || [];
+
+        // Identificar los roles
+        const esAdmin = roles.includes("ROLE_ADMIN");
+
+        const esInventario = roles.includes("ROLE_INVENTARIO");
+
+        const estaAutenticado = roles.length > 0;
+
+        // Obtener elementos de la página
+        const enlaceAdmin = document.getElementById("enlace-administracion");
+
+        const enlaceInventario = document.getElementById("enlace-inventario");
+
+        const enlaceLogin = document.getElementById("enlace-login");
+
+        const enlaceRegistro = document.getElementById("enlace-registro");
+
+        const nombreUsuario = document.getElementById("nombre-usuario");
+
+        const formularioLogout = document.getElementById("formulario-logout");
+
+        const seccionAdmin = document.getElementById("administracion");
+
+        // Obtener el formulario exclusivo de administración
+        const formularioAdministracion =
+            document.getElementById("formulario-administracion");
+
+        const footerAdmin = document.getElementById("enlaces-footer-administracion");
+
+        // Ocultar inicio de sesión y registro si existe una sesión
+        if (estaAutenticado) {
+
+            enlaceLogin.hidden = true;
+
+            enlaceRegistro.hidden = true;
+
+            nombreUsuario.hidden = false;
+
+            formularioLogout.hidden = false;
+
+            nombreUsuario.textContent = "Bienvenido, " + usuario.username;
+
+        }
+
+        // Mostrar administración solamente a ADMIN
+// Mostrar las opciones administrativas solamente a ADMIN
+if (esAdmin) {
+
+    enlaceAdmin.hidden = false;
+
+    seccionAdmin.hidden = false;
+
+    footerAdmin.hidden = false;
+
+    formularioAdministracion.hidden = false;
+
+} else {
+
+    enlaceAdmin.hidden = true;
+
+    seccionAdmin.hidden = true;
+
+    footerAdmin.hidden = true;
+
+    formularioAdministracion.hidden = true;
+
+}
+
+        // Mostrar inventario a ADMIN e INVENTARIO
+        if (esAdmin || esInventario) {
+
+            enlaceInventario.hidden = false;
+
+        }
+
+        // Obtener el token CSRF para cerrar sesión
+        const respuestaCsrf = await fetch("/api/auth/csrf");
+
+        if (respuestaCsrf.ok) {
+
+            const datosCsrf = await respuestaCsrf.json();
+
+            document.getElementById("token-logout").value = datosCsrf.token;
+
+        }
+
+    } catch (error) {
+
+        console.error("Error al verificar el usuario:", error);
+
+    }
+
+}
+
+// Ejecutar la comprobación al cargar la página
+document.addEventListener("DOMContentLoaded", verificarUsuario);
+
+</script>
 
 </body>
 
